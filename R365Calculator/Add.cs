@@ -7,8 +7,17 @@ namespace R365Calculator
     public class Calculator: ICalculator
     {
         // use dependency for other future implementations.
-        public string Add(string numbersToProcess, string delimiter)
+        public string Add(string numbersToProcess, string delimiter="") // make delimiter optional
         {
+            // check if custom delimiter is present in numbers to process
+            // if so, use delimiter "//;\n2;5"
+            if(numbersToProcess.StartsWith("//"))
+            {
+                // parse out delimiter
+                delimiter = numbersToProcess.Substring(2, 1);  //zero based
+                numbersToProcess = numbersToProcess.Remove(0, 3);
+            }
+
             // replace line breaks with specified delimiter
             numbersToProcess = numbersToProcess.Replace("\n", delimiter);
             // initialize results
