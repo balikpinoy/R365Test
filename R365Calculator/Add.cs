@@ -22,13 +22,18 @@ namespace R365Calculator
                 // check for invalid number
                 if (Int32.TryParse(digit, out Int32 intResult))
                 {
-                    if (intResult >= 0)
+                    if (intResult >= 0 && intResult <= 1000)  // ignore over 1000
                         result += intResult;
                     else
-                        if (negativeNumbers.Length >= 1)
-                        negativeNumbers.Append("," + intResult.ToString());
-                    else
-                        negativeNumbers.Append(intResult.ToString());
+                    {
+                        if (intResult < 0)
+                        {
+                            if (negativeNumbers.Length >= 1)
+                                negativeNumbers.Append("," + intResult.ToString());
+                            else
+                                negativeNumbers.Append(intResult.ToString());
+                        }
+                    }
                 }
             }
             if (negativeNumbers.Length >= 1)
