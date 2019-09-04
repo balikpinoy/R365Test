@@ -9,14 +9,27 @@ namespace R365Calculator
         // use dependency for other future implementations.
         public string Add(string numbersToProcess, string delimiter="") // make delimiter optional
         {
-            // check if custom delimiter is present in numbers to process
-            // if so, use delimiter "//;\n2;5"
-            if(numbersToProcess.StartsWith("//"))
+            
+            //  check for custom delimiters
+            if (numbersToProcess.StartsWith("//"))
             {
-                // parse out delimiter
-                delimiter = numbersToProcess.Substring(2, 1);  //zero based
-                numbersToProcess = numbersToProcess.Remove(0, 3);
+                if (numbersToProcess.Contains("["))
+                {
+                    string output = numbersToProcess.Split('[', ']')[1];
+                    if (!String.IsNullOrEmpty(output))
+                    {
+                        delimiter = output;
+                        numbersToProcess = numbersToProcess.Remove(0, numbersToProcess.IndexOf("]"));
+                    }
+                }
+                else
+                {
+                    // parse out delimiter
+                    delimiter = numbersToProcess.Substring(2, 1);  //zero based
+                    numbersToProcess = numbersToProcess.Remove(0, 3);
+                }
             }
+
 
             // replace line breaks with specified delimiter
             numbersToProcess = numbersToProcess.Replace("\n", delimiter);

@@ -9,12 +9,12 @@ namespace XUnitTestProject1
         [Theory]
         [InlineData("2",",","2")]  // max 2 number
         [InlineData("1,2",",", "3")]  // max 2 number
-
         [InlineData("5,ssd", ",", "5")] // invalid char = 0
         [InlineData("5,2,5,5,6", ",", "23")] // More that 2 Numbers
         [InlineData("1\n2,3", ",", "6")] // Line Break inside string
         [InlineData("5\n2,1002,5,6", ",", "18")] // Ignore > 1000
         [InlineData("//;\n2;5","","7")] // custom 1 character delimiter signified by //
+        [InlineData("//[***]\n11***22***33","","66")] //custom multiple character delimiter
 
 
         public void TestCalculatorAdd(string numbersToProcess, string delimiter, string expectedResult)
