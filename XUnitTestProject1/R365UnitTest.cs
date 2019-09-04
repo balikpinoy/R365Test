@@ -8,7 +8,7 @@ namespace XUnitTestProject1
     {
         [Theory]
         [InlineData("1,2",3)]
-        [InlineData("5,2",7)]
+        [InlineData("5,ssd",5)]
 
         public void TestCalculatorAdd(string input, Int32 expectedResult)
         {

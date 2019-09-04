@@ -16,7 +16,9 @@ namespace R365Calculator
             String[] strNumerals = input1.Split(delimiter);
             foreach(string digit in strNumerals)
             {
-                result += Int32.Parse(digit);
+                // check for invalid number
+                if (Int32.TryParse(digit, out Int32 intResult))
+                  result += intResult;
             }
             return result;
 
