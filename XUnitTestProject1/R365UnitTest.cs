@@ -10,7 +10,7 @@ namespace XUnitTestProject1
         [InlineData("1,2",",",3)]  // max 2 number
         [InlineData("5,ssd",",",5)] // invalid char = 0
         [InlineData("5,2,5,5,6", ",", 23)] // More that 2 Numbers
-
+        [InlineData("5\n2,5,5,6", ",", 23)] // Line Break inside string
         public void TestCalculatorAdd(string numbersToProcess, string delimeter, Int32 expectedResult)
         {
             var testAdd = new Calculator();

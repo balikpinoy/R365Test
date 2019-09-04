@@ -9,7 +9,9 @@ namespace R365Calculator
         // use dependency for other future implementations.
         public Int32 Add(string numbersToProcess, string delimiter)
         {
-            // initialize result
+            // replace line breaks with specified delimiter
+            numbersToProcess = numbersToProcess.Replace("\n", delimiter);
+            // initialize results
             Int32 result = 0;
            
             String[] strNumerals = numbersToProcess.Split(delimiter);
