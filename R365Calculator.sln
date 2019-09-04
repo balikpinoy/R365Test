@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R365Calculator", "R365Calculator\R365Calculator.csproj", "{02F4D11A-8881-422B-824A-D159F0D1E87B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{036DAC52-DB9E-463B-8825-A82FB5A50DC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R365UnitTest", "XUnitTestProject1\R365UnitTest.csproj", "{036DAC52-DB9E-463B-8825-A82FB5A50DC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

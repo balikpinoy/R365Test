@@ -4,7 +4,7 @@ using Xunit;
 
 namespace XUnitTestProject1
 {
-    public class UnitTest1
+    public class R365UnitTest
     {
         [Theory]
         [InlineData("1,2",3)]
