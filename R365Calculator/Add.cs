@@ -32,7 +32,7 @@ namespace R365Calculator
                 }
             }
             if (negativeNumbers.Length >= 1)
-                return negativeNumbers.ToString();
+                throw new InvalidOperationException(negativeNumbers.ToString());
             else
                 return result.ToString();
 
