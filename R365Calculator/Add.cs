@@ -7,13 +7,12 @@ namespace R365Calculator
     public class Calculator: ICalculator
     {
         // use dependency for other future implementations.
-        public Int32 Add(string input1)
+        public Int32 Add(string numbersToProcess, string delimiter)
         {
             // initialize result
             Int32 result = 0;
-            // split as comma delimited
-            string delimiter = ",";
-            String[] strNumerals = input1.Split(delimiter);
+           
+            String[] strNumerals = numbersToProcess.Split(delimiter);
             foreach(string digit in strNumerals)
             {
                 // check for invalid number
