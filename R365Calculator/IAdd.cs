@@ -10,6 +10,6 @@ namespace R365Calculator
     /// </summary>
     public interface ICalculator
     {
-        Int32 Add(string numbersToProcess, string delimiter);
+        string Add(string numbersToProcess, string delimiter);
     }
 }
