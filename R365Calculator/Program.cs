@@ -11,17 +11,14 @@ namespace R365Calculator
             RegisterServices();
             var service = _calculatorServiceProvider.GetService<ICalculator>();
             // get input from user
-            Console.WriteLine("Enter First Number");
+            Console.WriteLine("Enter String");
             string numbersToProcess = Console.ReadLine().ToString();
 
-            Console.WriteLine("Enter Second Number");
-            numbersToProcess += "," + Console.ReadLine().ToString();
-
-            Console.WriteLine("Enter Delimiter to use");
+            Console.WriteLine("Enter Default Delimiter to use");
             string delimiter = Console.ReadLine();
 
             // do calculations
-            var result = service.Add(numbersToProcess,delimiter);
+            var result = service.ProcessStringToAdd(numbersToProcess,delimiter);
 
             Console.WriteLine(result.ToString());
             Console.ReadLine();
