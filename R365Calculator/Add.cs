@@ -42,6 +42,9 @@ namespace R365Calculator
             // initialize string to hold negative numbers
             StringBuilder negativeNumbers = new StringBuilder();
 
+            // initialize string to capture each operation
+            StringBuilder operationDone = new StringBuilder();
+
             String[] strNumerals = numbersToProcess.Split(delimiter);
             foreach (string digit in strNumerals)
             {
@@ -49,7 +52,10 @@ namespace R365Calculator
                 if (Int32.TryParse(digit, out Int32 intResult))
                 {
                     if (intResult >= 0 && intResult <= 1000)  // ignore over 1000
+                    {
                         result += intResult;
+                        BuildListOfOperation(ref operationDone, intResult);
+                    }
                     else
                     {
                         if (intResult < 0)
@@ -59,15 +65,25 @@ namespace R365Calculator
                             else
                                 negativeNumbers.Append(intResult.ToString());
                         }
+                        BuildListOfOperation(ref operationDone, 0);
+
                     }
                 }
             }
             if (negativeNumbers.Length >= 1)
                 throw new InvalidOperationException(negativeNumbers.ToString());
             else
-                return result.ToString();
+                return operationDone.ToString() + " = " + result.ToString();
         }
 
+        private void BuildListOfOperation(ref StringBuilder stringResult, Int32 digit)
+        {
+            if (stringResult.Length == 0)
+                stringResult.Append(digit.ToString());
+            else
+                stringResult.Append("+" + digit.ToString());
+
+        }
   
         // replaces any custom delimiter with a default delimiter such as a comma
         private string NormalizeNumberString(string numbersToProcess, string defaultDelimiter)

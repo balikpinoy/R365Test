@@ -7,15 +7,15 @@ namespace XUnitTestProject1
     public class R365UnitTest
     {
         [Theory]
-        [InlineData("2",",","2")]  // max 2 number
-        [InlineData("1,2",",", "3")]  // max 2 number
-        [InlineData("5,ssd", ",", "5")] // invalid char = 0
-        [InlineData("5,2,5,5,6", ",", "23")] // More that 2 Numbers
-        [InlineData("1\n2,3", ",", "6")] // Line Break inside string
-        [InlineData("5\n2,1002,5,6", ",", "18")] // Ignore > 1000
-        [InlineData("//;\n2;5",",","7")] // custom 1 character delimiter signified by //
-        [InlineData("//[***]\n11***22***33",",","66")] //custom multiple character delimiter
-        [InlineData("//[*][!!][rrr]\n11rrr22*33!!44",",","110")]
+        [InlineData("2",",","2 = 2")]  // max 2 number
+        [InlineData("1,2",",", "1+2 = 3")]  // max 2 number
+        [InlineData("5,ssd", ",", "5 = 5")] // invalid char = 0
+        [InlineData("5,2,5,5,6", ",", "5+2+5+5+6 = 23")] // More that 2 Numbers
+        [InlineData("1\n2,3", ",", "1+2+3 = 6")] // Line Break inside string
+        [InlineData("5\n2,1002,5,6", ",", "5+2+0+5+6 = 18")] // Ignore > 1000
+        [InlineData("//;\n2;5",",","2+5 = 7")] // custom 1 character delimiter signified by //
+        [InlineData("//[***]\n11***22***33",",","11+22+33 = 66")] //custom multiple character delimiter
+        [InlineData("//[*][!!][rrr]\n11rrr22*33!!44",",","11+22+33+44 = 110")]
 
         public void TestCalculatorAdd(string numbersToProcess, string delimiter, string expectedResult)
         {
